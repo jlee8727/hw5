@@ -17,14 +17,22 @@ int main(int argc, char* argv[])
                 " and optional string of floating characters." << endl;
         return 1;
     }
-    const std::set<std::string>& dict = readDictWords("dict-eng.txt");    
+    //cout << "here" << endl;
+    const std::set<std::string>& dict = readDictWords("dict-eng.txt");
+   
     string in(argv[1]);
     string floatingChars;
+        
     if(argc > 2){
         floatingChars = argv[2];
     }
     std::set<string> answers;
     answers = wordle(in, floatingChars, dict);
+    //cout << in << endl;
+    //cout << answers.find(0) << endl;
+    // for (std::set<string>::iterator it= answers.begin(); it!=answers.end(); ++it){
+    //   cout << *it << "first" << endl;
+    // }
     for(auto s : answers){
         cout << s << endl;
     }
